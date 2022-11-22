@@ -1,0 +1,38 @@
+.container-list {
+	width: 100%;
+	height: 70vh;
+	background-color: #fff;
+	border-radius: 40px 40px 0 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.list-button {
+	width: 50%;
+	height: 15%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.list-button div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 55px;
+	height: 55px;
+	background-color: #ff5e6c;
+	border-radius: 100px;
+	color: white;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.list {
+	width: 80%;
+	height: 60vh;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: scroll;
+	gap: 2%;
+}

@@ -1,0 +1,22 @@
+.grocery-item {
+	width: 100%;
+	height: 51px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #ececec;
+	border-radius: 12px;
+	font-size: 1.3rem;
+	overflow: hidden;
+	margin-bottom: 3%;
+	transition: all 0.33s;
+}
+.checked {
+	height: 30px;
+	background-color: lightgray;
+	font-style: italic;
+	text-decoration: line-through;
+}
+.item-title {
+	font-weight: 600;
+}
