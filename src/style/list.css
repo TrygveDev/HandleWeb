@@ -16,7 +16,7 @@
 	justify-content: space-around;
 }
 
-.list-button div {
+.button-div {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -35,4 +35,8 @@
 	align-items: center;
 	overflow-y: scroll;
 	gap: 2%;
+}
+
+.active {
+	background-color: grey;
 }

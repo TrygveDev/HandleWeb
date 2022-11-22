@@ -4,9 +4,15 @@ import { useState } from "react";
 function Grocery(props) {
     const [checked, setChecked] = useState(false);
     function handleClick() {
-        checked ? setChecked(false) : setChecked(true);
-        if (!checked) {
-            // Get and set price
+
+
+        if (props.deleteMode) {
+            props.deleteGrocery(props.index)
+        } else {
+            checked ? setChecked(false) : setChecked(true);
+            if (!checked) {
+                // Get and set price
+            }
         }
     }
     return (

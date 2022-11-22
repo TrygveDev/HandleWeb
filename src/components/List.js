@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "../style/list.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
@@ -6,33 +6,35 @@ import Grocery from "./Grocery";
 
 
 function List() {
-    // const [balance, setBalance] = useState(0);
-
-    // function handleClick() {
-    //     setBalance(10)
-    // }
-
+    const [groceryList, setGroceryList] = useState(["Avocado", "Hotdog"]);
+    const [grocery, setGrocery] = useState("Avocado");
+    const [deleteMode, setDeleteMode] = useState(false);
+    function addGrocery() {
+        console.log("added")
+        setGroceryList(groceryList => [...groceryList, grocery])
+        console.log(groceryList)
+    }
+    function deleteGrocery(index) {
+        console.log("deleted")
+        let listCopy = [...groceryList];
+        listCopy.splice(index, 1);
+        setGroceryList(listCopy);
+    }
+    function toggleDeleteMode() {
+        deleteMode ? setDeleteMode(false) : setDeleteMode(true);
+    }
     return (
         <div className="container-list">
             <div className="list-button">
-                <div><FontAwesomeIcon icon={faTrashCan} size="2xl" /></div>
-                <div><FontAwesomeIcon icon={faPlus} size="2xl" /></div>
+                <div className={deleteMode ? "button-div active" : "button-div"}><FontAwesomeIcon icon={faTrashCan} size="2xl" onClick={toggleDeleteMode} /></div>
+                <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={addGrocery} /></div>
             </div>
             <div className="list">
-                <Grocery title="Avocado" price="23" />
-                <Grocery title="Avocado" price="23" />
-                <Grocery title="Avocado" price="23" />
-                <Grocery title="Avocado" price="23" />
-                <Grocery title="Avocado" price="23" />
-                <Grocery title="5Avocado" price="23" />
-                <Grocery title="2Avocado" price="23" />
-                <Grocery title="6Avocado" price="23" />
-                <Grocery title="1Avocado" price="23" />
-                <Grocery title="1vocado" price="23" />
-                <Grocery title="2Avocado" price="23" />
-                <Grocery title="6Avocado" price="23" />
-                <Grocery title="5Avocado" price="23" />
-                <Grocery title="2Avocado" price="23" />
+                {
+                    groceryList.map((item, index) => {
+                        return (<Grocery title={item} key={index} deleteMode={deleteMode} deleteGrocery={deleteGrocery} />);
+                    })
+                }
             </div>
         </div>
 
