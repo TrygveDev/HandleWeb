@@ -1,14 +1,11 @@
-import { useState } from "react";
 import "../style/header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 
-function Header() {
-    const [balance, setBalance] = useState(0);
-
+function Header(props) {
     function handleClick() {
-        setBalance(10)
+        // Open modal set modal value to new header value
     }
 
     return (
@@ -17,7 +14,7 @@ function Header() {
                 <FontAwesomeIcon icon={faPenToSquare} size="2xl" onClick={handleClick} />
             </div>
             <div className="header">
-                <h1>{balance} kr</h1>
+                <h1>{props.money} kr</h1>
                 <p>Dine Penger</p>
             </div>
         </div>
