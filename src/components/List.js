@@ -8,18 +8,16 @@ import Modal from "./Modal";
 
 function List(props) {
     const [displayModal, setDisplayModal] = useState(false)
-    const [groceryList, setGroceryList] = useState(["Avocado", "Hotdog"]);
-    const [grocery, setGrocery] = useState("");
+    const [groceryList, setGroceryList] = useState(['']);
     const [deleteMode, setDeleteMode] = useState(false);
-    function addGrocery() {
+    function addGrocery(grocery) {
+        setGroceryList([...groceryList, grocery])
         console.log("added")
-        setGrocery("Avocado")
-        setGroceryList(groceryList => [...groceryList, grocery])
         console.log(groceryList)
     }
     function deleteGrocery(index) {
-        console.log("deleted")
         let listCopy = [...groceryList];
+        console.log("direct copy")
         listCopy.splice(index, 1);
         setGroceryList(listCopy);
     }
@@ -41,14 +39,15 @@ function List(props) {
             <Modal displayModal={displayModal} toggleDisplayModal={toggleDisplayModal} subtractMoneyFromModal={subtractMoneyFromModal} />
             <div className="list-button">
                 <div className={deleteMode ? "button-div active" : "button-div"}><FontAwesomeIcon icon={faTrashCan} size="2xl" onClick={toggleDeleteMode} /></div>
-                <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={addGrocery} /></div>
+                <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={() => { addGrocery("Hotdog") }} /></div>
             </div>
             <div className="list">
                 {
                     groceryList.map((item, index) => {
-                        return (<Grocery title={item} key={index} price={null} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} />);
+                        return (<Grocery title={item} key={index} index={index} price={null} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} />);
                     })
                 }
+
             </div>
         </div>
 

@@ -5,6 +5,7 @@ function Grocery(props) {
     const [checked, setChecked] = useState(false);
     function handleClick() {
         if (props.deleteMode) {
+            console.log(props)
             props.deleteGrocery(props.index)
         } else {
             checked ? setChecked(false) : setChecked(true);
