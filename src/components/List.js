@@ -8,18 +8,27 @@ import Modal from "./Modal";
 
 function List(props) {
     const [displayModal, setDisplayModal] = useState(false)
-    const [groceryList, setGroceryList] = useState(['']);
+    const [groceryList, setGroceryList] = useState([]);
     const [deleteMode, setDeleteMode] = useState(false);
+    const [groceryIndex, setGroceryIndex] = useState(null);
+    var groceryObj
+
+    function createGroceryObj() {
+        groceryObj = groceryList.map((item, index) => {
+            return (<Grocery title={item.props.title} key={index} index={index} price={null} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} setGroceryIndexState={setGroceryIndexState} />);
+        })
+    }
+    createGroceryObj()
+
     function addGrocery(grocery) {
-        setGroceryList([...groceryList, grocery])
-        console.log("added")
-        console.log(groceryList)
+        setGroceryList([...groceryList, <Grocery title={grocery} />])
+
     }
     function deleteGrocery(index) {
-        let listCopy = [...groceryList];
-        console.log("direct copy")
-        listCopy.splice(index, 1);
-        setGroceryList(listCopy);
+
+        let listCopyFiltered = groceryObj.filter((item) => item.props.index !== index)
+        setGroceryList(listCopyFiltered)
+        console.log(groceryList)
     }
     function toggleDeleteMode() {
         deleteMode ? setDeleteMode(false) : setDeleteMode(true);
@@ -34,20 +43,26 @@ function List(props) {
     function restoreMoneyFromModal(amount) {
         props.restoreMoney(amount)
     }
+    function setGroceryCost(amount, index) {
+        let listCopy = [...groceryObj];
+        listCopy[index].props.price = amount;
+        setGroceryList(listCopy);
+    }
+    function setGroceryIndexState(index) {
+        setGroceryIndex(index);
+    }
+
+
+
     return (
         <div className="container-list">
-            <Modal displayModal={displayModal} toggleDisplayModal={toggleDisplayModal} subtractMoneyFromModal={subtractMoneyFromModal} />
+            <Modal setGroceryIndexState={setGroceryIndexState} groceryIndex={groceryIndex} setGroceryCost={setGroceryCost} displayModal={displayModal} toggleDisplayModal={toggleDisplayModal} subtractMoneyFromModal={subtractMoneyFromModal} />
             <div className="list-button">
                 <div className={deleteMode ? "button-div active" : "button-div"}><FontAwesomeIcon icon={faTrashCan} size="2xl" onClick={toggleDeleteMode} /></div>
                 <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={() => { addGrocery("Hotdog") }} /></div>
             </div>
             <div className="list">
-                {
-                    groceryList.map((item, index) => {
-                        return (<Grocery title={item} key={index} index={index} price={null} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} />);
-                    })
-                }
-
+                {groceryObj}
             </div>
         </div>
 

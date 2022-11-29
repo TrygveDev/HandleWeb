@@ -4,8 +4,8 @@ import { useState } from "react";
 function Grocery(props) {
     const [checked, setChecked] = useState(false);
     function handleClick() {
+        props.setGroceryIndexState(props.index)
         if (props.deleteMode) {
-            console.log(props)
             props.deleteGrocery(props.index)
         } else {
             checked ? setChecked(false) : setChecked(true);

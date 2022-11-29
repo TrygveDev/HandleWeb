@@ -5,11 +5,14 @@ function Modal(props) {
     function hideModal() {
         props.toggleDisplayModal(false)
         document.getElementById('inputModal').value = ""
+        props.setGroceryIndexState(null)
     }
     function submitModal() {
         props.toggleDisplayModal(false)
         props.subtractMoneyFromModal(document.getElementById('inputModal').value)
+        props.setGroceryCost(document.getElementById('inputModal').value, props.groceryIndex)
         document.getElementById('inputModal').value = ""
+        props.setGroceryIndexState(null)
     }
     return (
         <div className={props.displayModal ? "modal-view show" : "modal-view"}>
