@@ -4,11 +4,12 @@ import "../style/modal2.css";
 function Modal2(props) {
     function hideModal2() {
         props.toggleDisplayModal(false)
-        document.getElementById('inputModal2').value = ""
+        document.getElementById('inputmodal2').value = ""
     }
     function submitModal2() {
         props.toggleDisplayModal(false)
-        props.newHeaderMoney(document.getElementById('inputmodal2').value)
+        let value = document.getElementById('inputmodal2').value === isNaN || document.getElementById('inputmodal2').value === "" ? 0 : document.getElementById('inputmodal2').value
+        props.newHeaderMoney(value)
         document.getElementById('inputmodal2').value = ""
     }
     return (

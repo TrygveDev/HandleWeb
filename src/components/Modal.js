@@ -9,8 +9,9 @@ function Modal(props) {
     }
     function submitModal() {
         props.toggleDisplayModal(false)
-        props.subtractMoneyFromModal(document.getElementById('inputModal').value)
-        props.setGroceryCost(document.getElementById('inputModal').value, props.groceryIndex)
+        let value = document.getElementById('inputModal').value === isNaN ? 0 : document.getElementById('inputModal').value
+        props.subtractMoneyFromModal(value)
+        props.setGroceryCost(value, props.groceryIndex)
         document.getElementById('inputModal').value = ""
         props.setGroceryIndexState(null)
     }

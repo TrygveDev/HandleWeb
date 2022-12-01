@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import Grocery from "./Grocery";
 import Modal from "./Modal";
+import Modal3 from "./Modal3";
 
 
 function List(props) {
     const [displayModal, setDisplayModal] = useState(false)
+    const [displayModal3, setDisplayModal3] = useState(false)
     const [groceryList, setGroceryList] = useState([]);
     const [deleteMode, setDeleteMode] = useState(false);
     const [groceryIndex, setGroceryIndex] = useState(null);
@@ -44,7 +46,7 @@ function List(props) {
         props.restoreMoney(amount)
     }
     function setGroceryCost(amount, index) {
-        let listCopy = [...groceryObj];
+        let listCopy = groceryObj;
         listCopy[index].props.price = amount;
         setGroceryList(listCopy);
     }
@@ -56,10 +58,11 @@ function List(props) {
 
     return (
         <div className="container-list">
+            <Modal3 addGrocery={addGrocery} displayModal3={displayModal3} setDisplayModal3={setDisplayModal3} />
             <Modal setGroceryIndexState={setGroceryIndexState} groceryIndex={groceryIndex} setGroceryCost={setGroceryCost} displayModal={displayModal} toggleDisplayModal={toggleDisplayModal} subtractMoneyFromModal={subtractMoneyFromModal} />
             <div className="list-button">
                 <div className={deleteMode ? "button-div active" : "button-div"}><FontAwesomeIcon icon={faTrashCan} size="2xl" onClick={toggleDeleteMode} /></div>
-                <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={() => { addGrocery("Hotdog") }} /></div>
+                <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={() => { setDisplayModal3(true) }} /></div>
             </div>
             <div className="list">
                 {groceryObj}
