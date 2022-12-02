@@ -10,7 +10,7 @@ function App() {
         setMoney(money - amount)
     }
     function restoreMoney(amount) {
-        setMoney(money + amount)
+        setMoney(parseInt(money + amount))
     }
 
     return (

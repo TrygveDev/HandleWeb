@@ -13,24 +13,18 @@ function List(props) {
     const [groceryList, setGroceryList] = useState([]);
     const [deleteMode, setDeleteMode] = useState(false);
     const [groceryIndex, setGroceryIndex] = useState(null);
-    var groceryObj
 
-    function createGroceryObj() {
-        groceryObj = groceryList.map((item, index) => {
-            return (<Grocery title={item.props.title} key={index} index={index} price={null} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} setGroceryIndexState={setGroceryIndexState} />);
-        })
-    }
-    createGroceryObj()
+    let groceryObj = groceryList.map((item, index) => {
+        return (<Grocery title={item.title} key={index} index={index} price={item.price} deleteMode={deleteMode} deleteGrocery={deleteGrocery} toggleDisplayModal={toggleDisplayModal} displayModal={displayModal} restoreMoneyFromModal={restoreMoneyFromModal} setGroceryIndexState={setGroceryIndexState} />);
+    })
 
     function addGrocery(grocery) {
-        setGroceryList([...groceryList, <Grocery title={grocery} />])
-
+        setGroceryList([...groceryList, { "title": grocery, "price": 0 }])
+        console.log(groceryList)
     }
     function deleteGrocery(index) {
-
         let listCopyFiltered = groceryObj.filter((item) => item.props.index !== index)
         setGroceryList(listCopyFiltered)
-        console.log(groceryList)
     }
     function toggleDeleteMode() {
         deleteMode ? setDeleteMode(false) : setDeleteMode(true);
@@ -46,9 +40,10 @@ function List(props) {
         props.restoreMoney(amount)
     }
     function setGroceryCost(amount, index) {
-        let listCopy = groceryObj;
-        listCopy[index].props.price = amount;
-        setGroceryList(listCopy);
+        let listCopy = groceryList;
+        listCopy[index].price = amount;
+        setGroceryList(listCopy)
+        console.log(groceryList)
     }
     function setGroceryIndexState(index) {
         setGroceryIndex(index);
