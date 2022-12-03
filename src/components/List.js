@@ -42,6 +42,7 @@ function List(props) {
     function restoreMoneyFromModal(amount) {
         props.restoreMoney(amount)
     }
+    // eslint-disable-next-line
     function setGroceryCost(amount, index) {
         let listCopy = groceryList;
         listCopy[index].price = amount;
