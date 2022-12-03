@@ -1,17 +1,23 @@
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 import { useState } from "react";
 import "../style/app.css";
 import Header from "./Header";
 import List from "./List";
 
 function App() {
-    const [money, setMoney] = useState(0)
+    const [money, setMoney] = useState(Cookies.get("money") == null ? 0 : Cookies.get("money"))
 
     function subtractMoney(amount) {
         setMoney(money - amount)
     }
     function restoreMoney(amount) {
-        setMoney(parseInt(money + amount))
+        setMoney(parseInt(money) + parseInt(amount))
     }
+
+    useEffect(() => {
+        Cookies.set("money", money, { expires: 365 })
+    }, [money])
 
     return (
         <div className="container">
@@ -23,4 +29,3 @@ function App() {
 }
 
 export default App;
-
