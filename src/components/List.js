@@ -20,7 +20,6 @@ function List(props) {
     })
     useEffect(() => {
         Cookies.set("groceryList", JSON.stringify(groceryList), { expires: 365 })
-        console.log("grocerlist updated")
     }, [groceryList, setGroceryCost])
     function addGrocery(grocery) {
         setGroceryList([...groceryList, { "title": grocery, "price": 0 }])
@@ -34,7 +33,6 @@ function List(props) {
     }
     function toggleDisplayModal(boolean) {
         setDisplayModal(boolean);
-        console.log(displayModal)
     }
     function subtractMoneyFromModal(amount) {
         props.subtractMoney(amount)

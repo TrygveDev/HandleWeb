@@ -9,7 +9,7 @@
 	font-size: 1.3rem;
 	overflow: hidden;
 	margin-bottom: 3%;
-	transition: all 0.33s;
+	transition: all 0.66s;
 }
 .checked {
 	height: 30px;
@@ -19,4 +19,63 @@
 }
 .item-title {
 	font-weight: 600;
+}
+
+.confirmModal {
+	width: 130%;
+	margin-left: -15%;
+	height: 175px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	overflow: hidden;
+	background-color: #f0f0f0;
+	border-radius: 12px;
+	color: black;
+}
+
+.confirmModal p {
+	font-size: 1.3em;
+	margin: 0;
+}
+.confirmModal button:nth-child(1) {
+	width: 40%;
+	height: 100%;
+	margin-right: 5%;
+	margin-top: 4%;
+	border-radius: 12px;
+	border: 0;
+	background-color: rgba(255, 0, 0, 0.5);
+	color: white;
+	font-size: 1.2em;
+}
+
+.confirmModal-btn {
+	width: 100%;
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	font-size: 1.25em;
+}
+.confirmModal button {
+	width: 40%;
+	height: 100%;
+	margin-top: 4%;
+	border-radius: 12px;
+	border: 0;
+	background-color: rgba(153, 205, 50, 0.85);
+	color: white;
+	font-size: 1.2em;
+}
+.inputConfirmModal {
+	width: 50%;
+	height: 30%;
+	border-radius: 12px;
+	text-align: center;
+	font-size: 2em;
+	color: black;
+	background-color: #ececec;
+	border: 0;
 }
