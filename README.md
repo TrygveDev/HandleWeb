@@ -71,5 +71,6 @@ Her er kilder brukt i prosjektet og andre tjenester som jeg setter stor pris på
 * [Choose an Open Source License](https://choosealicense.com)
 * [Font Awesome](https://fontawesome.com)
 * [Discord](https://discord.com) - The Programmer's Hangout (discord server)
+* [ReactJS Docs](https://reactjs.org/docs/getting-started.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
