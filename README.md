@@ -70,7 +70,7 @@ Her er kilder brukt i prosjektet og andre tjenester som jeg setter stor pris på
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [Font Awesome](https://fontawesome.com)
-* [Discord](https://discord.com) - The Programmer's Hangout (discord server)
+* [Discord](https://discord.gg/programmer)
 * [ReactJS Docs](https://reactjs.org/docs/getting-started.html)
 * [JS-Cookie](https://github.com/js-cookie/js-cookie)
 
