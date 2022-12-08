@@ -1,0 +1,45 @@
+.confirmModal {
+	width: 100vw;
+	height: 200px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.confirmModal-content {
+	width: 80%;
+	height: 100%;
+	background-color: #ececec;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 1em;
+}
+.confirmModal-content h1 {
+	margin-bottom: 0.75em;
+}
+.confirmModal-buttons {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.confirmModal-buttons button {
+	width: 40%;
+	height: 100%;
+	border-radius: 12px;
+	stroke: 0;
+	border: 0;
+	font-size: 1.5em;
+	color: white;
+}
+.confirmModal-buttons button:nth-child(1) {
+	background-color: rgba(255, 0, 0, 0.5);
+}
+.confirmModal-buttons button:nth-child(2) {
+	background-color: rgba(153, 205, 50, 0.85);
+}
