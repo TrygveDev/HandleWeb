@@ -21,7 +21,7 @@ function App() {
 
     return (
         <div className="container">
-            <Header money={money} setMoney={setMoney} />
+            <Header money={money} setMoney={setMoney} restoreMoney={restoreMoney} subtractMoney={subtractMoney} />
             <List subtractMoney={subtractMoney} restoreMoney={restoreMoney} />
         </div>
 
