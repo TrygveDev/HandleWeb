@@ -30,7 +30,7 @@ function Header(props) {
                         <div className='inputModal'>
                             <div className='inputModal-content'>
                                 <h1>Hvor mye penger har du?</h1>
-                                <input ref={inputRef} placeholder="0" type="number"></input>
+                                <input ref={inputRef} autoFocus placeholder="0" type="number"></input>
                                 <div className='inputModal-buttons'>
                                     <button
                                         onClick={() => {
@@ -59,71 +59,100 @@ function Header(props) {
 
     }
     function handleClickPlus() {
-        confirmAlert({
-            customUI: ({ onClose }) => {
-                return (
-                    <div className='inputModal'>
-                        <div className='inputModal-content'>
-                            <h1>Hvor mye penger vil du legge til?</h1>
-                            <input ref={inputRefPlus} placeholder="0" type="number"></input>
-                            <div className='inputModal-buttons'>
-                                <button
-                                    onClick={() => {
-                                        onClose();
-                                    }}
-                                >Avbryt</button>
-                                <button
-                                    onClick={() => {
-                                        if (inputRefPlus.current.value.length > 5 || inputRefPlus.current.value === "" || isNaN(inputRefPlus.current.value.length)) {
-                                            alert("Du kan bare sette pengene til hele tall som har maksimal lengde på 5!")
-                                        } else {
-                                            props.restoreMoney(inputRefPlus.current.value)
-                                        }
-                                        onClose();
-                                    }}
-                                >Ok</button>
+        const groceryList = Cookies.get("groceryList") == null ? null : JSON.parse(Cookies.get("groceryList"))
+        console.log(groceryList)
+        hasCheckedItem = false
+        if (Object.values(groceryList).length !== 0) {
+            Object.values(groceryList).forEach((item) => {
+                if (item.price !== 0) {
+                    hasCheckedItem = true
+                }
+            })
+        }
+        if (!hasCheckedItem) {
+            confirmAlert({
+                customUI: ({ onClose }) => {
+                    return (
+                        <div className='inputModal'>
+                            <div className='inputModal-content'>
+                                <h1>Hvor mye penger vil du legge til?</h1>
+                                <input ref={inputRefPlus} autoFocus placeholder="0" type="number"></input>
+                                <div className='inputModal-buttons'>
+                                    <button
+                                        onClick={() => {
+                                            onClose();
+                                        }}
+                                    >Avbryt</button>
+                                    <button
+                                        onClick={() => {
+                                            if (inputRefPlus.current.value.length > 5 || inputRefPlus.current.value === "" || isNaN(inputRefPlus.current.value.length)) {
+                                                alert("Du kan bare sette pengene til hele tall som har maksimal lengde på 5!")
+                                            } else {
+                                                props.restoreMoney(inputRefPlus.current.value)
+                                            }
+                                            onClose();
+                                        }}
+                                    >Ok</button>
+                                </div>
                             </div>
-                        </div>
-                    </div >
-                );
-            }
-        });
+                        </div >
+                    );
+                }
+            });
+        } else {
+            alert("Du kan ikke endre pengene dine når du har en avkrysset vare i listen din!")
+        }
+
     }
     function handleClickMinus() {
-        confirmAlert({
-            customUI: ({ onClose }) => {
-                return (
-                    <div className='inputModal'>
-                        <div className='inputModal-content'>
-                            <h1>Hvor mye penger vil du trekke fra?</h1>
-                            <input ref={inputRefMinus} placeholder="0" type="number"></input>
-                            <div className='inputModal-buttons'>
-                                <button
-                                    onClick={() => {
-                                        onClose();
-                                    }}
-                                >Avbryt</button>
-                                <button
-                                    onClick={() => {
-                                        if (inputRefMinus.current.value.length > 5 || inputRefMinus.current.value === "" || isNaN(inputRefMinus.current.value.length)) {
-                                            alert("Du kan bare sette pengene til hele tall som har maksimal lengde på 5!")
-                                        } else {
-                                            props.subtractMoney(inputRefMinus.current.value)
-                                        }
-                                        onClose();
-                                    }}
-                                >Ok</button>
+        const groceryList = Cookies.get("groceryList") == null ? null : JSON.parse(Cookies.get("groceryList"))
+        console.log(groceryList)
+        hasCheckedItem = false
+        if (Object.values(groceryList).length !== 0) {
+            Object.values(groceryList).forEach((item) => {
+                if (item.price !== 0) {
+                    hasCheckedItem = true
+                }
+            })
+        }
+        if (!hasCheckedItem) {
+            confirmAlert({
+                customUI: ({ onClose }) => {
+                    return (
+                        <div className='inputModal'>
+                            <div className='inputModal-content'>
+                                <h1>Hvor mye penger vil du trekke fra?</h1>
+                                <input ref={inputRefMinus} autoFocus placeholder="0" type="number"></input>
+                                <div className='inputModal-buttons'>
+                                    <button
+                                        onClick={() => {
+                                            onClose();
+                                        }}
+                                    >Avbryt</button>
+                                    <button
+                                        onClick={() => {
+                                            if (inputRefMinus.current.value.length > 5 || inputRefMinus.current.value === "" || isNaN(inputRefMinus.current.value.length)) {
+                                                alert("Du kan bare sette pengene til hele tall som har maksimal lengde på 5!")
+                                            } else {
+                                                props.subtractMoney(inputRefMinus.current.value)
+                                            }
+                                            onClose();
+                                        }}
+                                    >Ok</button>
+                                </div>
                             </div>
-                        </div>
-                    </div >
-                );
-            }
-        });
+                        </div >
+                    );
+                }
+            });
+        } else {
+            alert("Du kan ikke endre pengene dine når du har en avkrysset vare i listen din!")
+        }
+
     }
 
     return (
         <div className="container-header">
-
             <div className="header">
                 <div className="header-info">
                     <h1>{props.money} kr</h1>
@@ -131,8 +160,8 @@ function Header(props) {
                 </div>
                 <div className="header-edit">
                     <FontAwesomeIcon icon={faMinus} size="2xl" onClick={handleClickMinus} />
-                    <FontAwesomeIcon icon={faPlus} size="2xl" onClick={handleClickPlus} />
                     <FontAwesomeIcon icon={faPenToSquare} size="2xl" onClick={handleClick} />
+                    <FontAwesomeIcon icon={faPlus} size="2xl" onClick={handleClickPlus} />
                 </div>
             </div>
         </div>

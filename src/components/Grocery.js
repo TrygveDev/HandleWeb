@@ -41,7 +41,7 @@ function Grocery(props) {
                             <div className='inputModal'>
                                 <div className='inputModal-content'>
                                     <h1>Hvor mye kostet varen?</h1>
-                                    <input ref={inputRef} placeholder="0" type="number"></input>
+                                    <input ref={inputRef} autoFocus placeholder="0" type="number"></input>
                                     <div className='inputModal-buttons'>
                                         <button
                                             onClick={() => {

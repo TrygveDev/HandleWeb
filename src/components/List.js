@@ -53,7 +53,7 @@ function List(props) {
                     <div className='inputModal'>
                         <div className='inputModal-content'>
                             <h1>Skriv inn en vare du skal handle</h1>
-                            <input ref={inputRef} placeholder="Eple..." type="text"></input>
+                            <input ref={inputRef} autoFocus placeholder="Eple..." type="text"></input>
                             <div className='inputModal-buttons'>
                                 <button
                                     onClick={() => {
