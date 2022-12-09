@@ -74,5 +74,6 @@ Her er kilder brukt i prosjektet og andre tjenester som jeg setter stor pris på
 * [ReactJS Docs](https://reactjs.org/docs/getting-started.html)
 * [JS-Cookie](https://github.com/js-cookie/js-cookie)
 * [react-confirm-alert](https://www.npmjs.com/package/react-confirm-alert)
+* [reactjs-popup](https://www.npmjs.com/package/reactjs-popup)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
