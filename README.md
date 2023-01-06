@@ -1,7 +1,9 @@
 <div id="top"></div>
 <br />
 <div align="center">
-
+<a href="https://github.com/TrygveDev/wegojim">
+    <img src="public/logo512.png" alt="Logo" width="80" height="80">
+  </a>
   <h3 align="center">HandleWeb</h3>
 
   <p align="center">
@@ -37,6 +39,8 @@
 ## Om prosjektet
 
 En Handle app som lar deg legge til matvarer og legge in pris. Appen kalkulerer automatisk hvor mye penger du har igjen etter kjøp og gjør det lett oversiktlig.
+Denne appen ble utviklet for Drømtorp Videregående Skole, Tilrettelagt opplæring (TO). Tilrettelagt opplæring er et opplæringstilbud til elever med spesielle behov.
+[Les mer om TO her](https://viken.no/dromtorp-vgs/utdanningstilbud/tilrettelagt-opplaring/)
 
 ## Rammeverk
 
@@ -48,6 +52,7 @@ En Handle app som lar deg legge til matvarer og legge in pris. Appen kalkulerer 
 1. Gå til den ofisielle nettsiden [her](https://handlewebapp.web.app) på en mobiltelefon i Safari eller Chrome.
 2. Android: Gå i browserens instillinger, de tre prikkene øverst til høyre. IOS: Trykk på del ikonet (pil fra boks ikon) og scroll nedover.
 3. Trykk "Add to homescreen". Dette lar deg gå inn i appen fra hjemmeskjerm. Lett og enkelt.
+Dersom du bruker chrome vil en popup vise en installasjons knapp. Dette er en kjappere metode.
 
 <!-- LICENSE -->
 ## License
