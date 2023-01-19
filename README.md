@@ -2,7 +2,7 @@
 <br />
 <div align="center">
 <a href="https://github.com/TrygveDev/wegojim">
-    <img src="public/logo512.png" alt="Logo" width="80" height="80">
+    <img src="public/android/android-launchericon-512-512.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">HandleWeb</h3>
 
