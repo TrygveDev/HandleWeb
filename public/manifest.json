@@ -2,6 +2,8 @@
 	"short_name": "Handle",
 	"name": "Handle",
 	"start_url": ".",
+	"scope": "https://handle.trygve.dev/",
+	"display_override": ["fullscreen", "browser"],
 	"display": "standalone",
 	"theme_color": "#ffffff",
 	"background_color": "#ffaaab",
@@ -10,6 +12,7 @@
 	"lang": "nb",
 	"orientation": "portrait",
 	"prefer_related_applications": false,
+	"iarc_rating_id": "-",
 	"categories": [
 		"education",
 		"finance",
@@ -19,6 +22,7 @@
 		"utilities"
 	],
 	"shortcuts": [{}],
+	"share_target": {},
 	"related_applications": [
 		{
 			"platform": "Android",
@@ -47,7 +51,13 @@
 			"src": "android/android-launchericon-512-512.png",
 			"sizes": "512x512",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "maskable"
+		},
+		{
+			"src": "android/android-launchericon-512-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any"
 		},
 		{
 			"src": "android/android-launchericon-192-192.png",
