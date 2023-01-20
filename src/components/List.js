@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "../style/list.css";
+import "../style/inputModal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faTrashCan, faCheck } from '@fortawesome/free-solid-svg-icons'
 import Grocery from "./Grocery";
 import Cookies from "js-cookie";
 import { confirmAlert } from 'react-confirm-alert';
@@ -78,11 +79,40 @@ function List(props) {
         });
     }
 
+    function doneClick() {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+                return (
+                    <div className='confirmModal'>
+                        <div className='confirmModal-content'>
+                            <h1>Er du ferdig med å handle?</h1>
+                            <div className='confirmModal-buttons'>
+                                <button
+                                    onClick={() => {
+                                        onClose();
+                                    }}
+                                >Nei</button>
+                                <button
+                                    onClick={() => {
+                                        setGroceryList([])
+                                        props.setMoney(0)
+                                        onClose();
+                                    }}
+                                >Ja</button>
+                            </div>
+                        </div>
+                    </div >
+                );
+            }
+        });
+    }
+
 
     return (
         <div className="container-list">
             <div className="list-button">
                 <div className={deleteMode ? "button-div active" : "button-div"}><FontAwesomeIcon icon={faTrashCan} size="2xl" onClick={toggleDeleteMode} /></div>
+                <div className="button-div"><FontAwesomeIcon icon={faCheck} size="2xl" onClick={doneClick} /></div>
                 <div className="button-div"><FontAwesomeIcon icon={faPlus} size="2xl" onClick={plusClick} /></div>
             </div>
             <div className="list">

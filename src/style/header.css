@@ -12,19 +12,15 @@
 	width: 80%;
 	height: 90%;
 	border-radius: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .header-info {
 	width: 100%;
-	height: 75%;
+	height: 100%;
 	text-align: center;
 	display: flex;
 	text-align: center;
-	justify-content: flex-end;
+	justify-content: center;
 	flex-direction: column;
 }
 .header-info h1 {
@@ -34,29 +30,13 @@
 	font-size: 1.5em;
 }
 .header-edit {
-	display: flex;
-	justify-content: space-evenly;
-	flex-direction: row;
-	width: 100%;
-	height: 20%;
-	margin: 5% 0 5% 0;
+	position: absolute;
+	margin: 0 0 30% 66%;
 }
-.popup-container {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	border-radius: 12px;
-	text-align: center;
+
+.canAfford {
+	color: black;
 }
-.popup-button {
-	width: 150px;
-	height: 40px;
-	border-radius: 12px;
-	background-color: #ff5e6c;
-	color: white;
-	font-size: 1.5em;
-	border: 0;
+.cantAfford {
+	color: red;
 }

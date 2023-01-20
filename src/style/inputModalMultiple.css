@@ -1,0 +1,62 @@
+.inputModalMultiple {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	margin-top: 20vh;
+}
+.inputModalMultiple-content {
+	width: 80%;
+	height: 300px;
+	background-color: #ececec;
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	padding: 1em;
+}
+.inputModalMultiple-content input {
+	width: 75%;
+	height: 60px;
+	border-radius: 12px;
+	text-align: center;
+	stroke: 0;
+	border: 0;
+	font-size: 2em;
+	margin: 0.5em 0 0.5em 0;
+}
+.inputModalMultiple-content input:focus {
+	outline-color: black;
+}
+.inputModalMultiple-buttons {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.inputModalMultiple-buttons button {
+	width: 27%;
+	height: 100%;
+	border-radius: 12px;
+	stroke: 0;
+	border: 0;
+	font-size: 1.5em;
+	color: white;
+}
+.inputModalMultiple-buttons-cancel {
+	margin-top: 15px;
+	background-color: rgba(255, 0, 0, 0.5);
+	width: 40%;
+	height: 60px;
+	border-radius: 12px;
+	stroke: 0;
+	border: 0;
+	font-size: 1.5em;
+	color: white;
+}
+.inputModalMultiple-buttons button {
+	background-color: rgba(153, 205, 50, 0.85);
+}

@@ -22,7 +22,7 @@ function App() {
     return (
         <div className="container">
             <Header money={money} setMoney={setMoney} restoreMoney={restoreMoney} subtractMoney={subtractMoney} />
-            <List subtractMoney={subtractMoney} restoreMoney={restoreMoney} />
+            <List subtractMoney={subtractMoney} restoreMoney={restoreMoney} setMoney={setMoney} />
         </div>
 
     );
