@@ -1,0 +1,19 @@
+.menu {
+	background-color: white;
+	border-radius: 24px 0 0 24px;
+	height: 10vh;
+	padding-top: 2em;
+	overflow: hidden;
+}
+
+.menu-item {
+	width: 90%;
+	height: 70px;
+	background-color: #ececec;
+	border-radius: 12px;
+	margin: 1em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}

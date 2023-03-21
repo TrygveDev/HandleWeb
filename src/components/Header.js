@@ -80,11 +80,11 @@ function Header(props) {
     return (
         <div className="container-header">
 
-            <div className="header" onClick={handleClick}>
+            <div className="header">
                 <div className="header-info">
-                    <h1 className={props.money < 0 ? "cantAfford" : "canAfford"}>{props.money} kr</h1>
+                    <h1 onClick={handleClick} className={props.money < 0 ? "cantAfford" : "canAfford"}>{props.money} kr</h1>
                     <p>Dine Penger</p>
-                    <FontAwesomeIcon className="header-edit" icon={faPenToSquare} size="2xl" />
+                    <FontAwesomeIcon onClick={handleClick} className="header-edit" icon={faPenToSquare} size="2xl" />
                 </div>
 
             </div>
